@@ -1,0 +1,14 @@
+{
+  "name": "material-themeable",
+  "version": "0.2.0",
+  "peerDependencies": {
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14"
+  },
+  "author": "Tim O'Dell",
+  "description": "Angular Material extension",
+  "keywords": [
+    "material",
+    "colors"
+  ]
+}

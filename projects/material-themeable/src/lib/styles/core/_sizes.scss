@@ -1,0 +1,26 @@
+// Default sizes options.
+//
+// Used for both padding and margin
+// to override these sizes you must provide each of the keys
+$_cf-sizes: (
+  none: 0,
+  very-small: 2px,
+  small: 5px,
+  standard: 10px,
+  large: 15px,
+  very-large: 25px
+);
+
+@function _cf-get-size($sizeCollection, $args...) {
+  $output: '';
+
+  @if length($args) == 0 {
+    @return map-get($sizeCollection, standard);
+  }
+
+  @each $arg in $args {
+    $output: $output + '#{map-get($sizeCollection, $arg)} ';
+  }
+
+  @return unquote($output);
+}

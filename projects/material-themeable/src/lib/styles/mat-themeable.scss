@@ -1,0 +1,84 @@
+@import "core/core";
+
+@mixin _mat-themeable-size-classes($margin-config, $padding-config, $sizes...) {
+  @each $size in $sizes {
+    $padding: _cf-get-size($padding-config, $size);
+    $margin: _cf-get-size($margin-config, $size);
+
+    &.padding-vertical-#{$size} {
+      padding-bottom: $padding;
+      padding-top: $padding;
+    }
+
+    &.padding-horizontal-#{$size} {
+      padding-left: $padding;
+      padding-right: $padding;
+    }
+
+    &.margin-vertical-#{$size} {
+      margin-bottom: $margin;
+      margin-top: $margin;
+    }
+
+    &.margin-horizontal-#{$size} {
+      margin-left: $margin;
+      margin-right: $margin;
+    }
+  }
+}
+
+@mixin _mat-themeable-color-classes($theme, $hues...) {
+  @each $hue in $hues {
+    @include cf-mat-colors($theme, $hue);
+  }
+}
+
+@mixin cf-mat-colors($theme, $hue) {
+  &.color-base {
+    background: cf-mat-color(map-get($theme, background), app-bar);
+    color: cf-mat-color(map-get($theme, foreground), text);
+  }
+  &.color-primary-#{$hue} {
+    @include cf-mat-theme-color(map-get($theme, primary), $hue);
+  }
+
+  &.color-accent-#{$hue} {
+    @include cf-mat-theme-color(map-get($theme, accent), $hue);
+  }
+
+  &.color-warn-#{$hue} {
+    @include cf-mat-theme-color(map-get($theme, warn), $hue);
+  }
+
+}
+
+@mixin material-themeable($theme, $margin-sizes: $_cf-sizes, $padding-sizes: $_cf-sizes, $transition-config: $_transition-durations) {
+  .mat-themeable {
+    transition: color _cf-animation-transition(fast), background-color _cf-animation-transition(fast);
+
+    @include _mat-themeable-size-classes($margin-sizes, $padding-sizes, none, very-small, small, standard, large, very-large);
+    @include _mat-themeable-color-classes($theme, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700, default, lighter, darker);
+
+    &.layout {
+      &-small {
+        margin: _cf-get-size($margin-sizes, small, 0);
+        padding: _cf-get-size($padding-sizes, small);
+      }
+
+      &-standard {
+        margin: _cf-get-size($margin-sizes, standard, 0);
+        padding: _cf-get-size($padding-sizes, standard);
+      }
+
+      &-large {
+        margin: _cf-get-size($margin-sizes, large, 0);
+        padding: _cf-get-size($padding-sizes, large);
+      }
+
+      &-very-large {
+        margin: _cf-get-size($margin-sizes, very-large, 0);
+        padding: _cf-get-size($padding-sizes, very-large);
+      }
+    }
+  }
+}
