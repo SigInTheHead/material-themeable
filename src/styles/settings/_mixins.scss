@@ -1,0 +1,50 @@
+@mixin mx-flex-wrapper($direction: row, $align-items: flex-end, $justify: space-evenly, $wrap: nowrap, $align-content: flex-start) {
+  align-content: $align-content;
+  align-items: $align-items;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  @content;
+}
+
+@mixin mx-reset-sizing {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin mx-link-color($color: false){
+  a {
+    @if $color {
+      color: $color;
+    }
+    @else {
+      @content;
+    }
+  }
+}
+
+@mixin mx-lock-to-screen($offset: 0) {
+  bottom: $offset;
+  left: $offset;
+  position: fixed;
+  right: $offset;
+  top: $offset;
+}
+
+$shadow: (
+  standard: 0 0 10px 0 black,
+  inset-top: inset 0 20px 10px -20px black,
+  inset-bottom: inset 0 -20px 10px -20px black
+);
+
+
+@mixin mx-box-shadow($shadow-type: standard) {
+  -moz-box-shadow: map-get($shadow, $shadow-type);
+  -webkit-box-shadow: map-get($shadow, $shadow-type);
+  box-shadow: map-get($shadow, $shadow-type);
+}

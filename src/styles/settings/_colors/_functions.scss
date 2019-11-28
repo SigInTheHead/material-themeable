@@ -1,0 +1,263 @@
+@import "mat-theme";
+
+/** Reference - Angular Material Theme object
+ *  {
+ *    'primary': {
+ *      '50': 'color',
+ *      '100': 'color',
+ *      '200': 'color',
+ *      '300': 'color',
+ *      '400': 'color',
+ *      '500': 'color',
+ *      '600': 'color',
+ *      '700': 'color',
+ *      '800': 'color',
+ *      '900': 'color',
+ *      'A100': 'color',
+ *      'A200': 'color',
+ *      'A400': 'color',
+ *      'A700': 'color',
+ *      'contrast': {
+ *        '50': 'color',
+ *        '100': 'color',
+ *        '200': 'color',
+ *        '300': 'color',
+ *        '400': 'color',
+ *        '500': 'color',
+ *        '600': 'color',
+ *        '700': 'color',
+ *        '800': 'color',
+ *        '900': 'color',
+ *        'A100': 'color',
+ *        'A200': 'color',
+ *        'A400': 'color',
+ *        'A700': 'color'
+ *      },
+ *      'default': 'color',
+ *      'lighter': 'color',
+ *      'darker': 'color',
+ *      'text': 'color',
+ *      'default-contrast': 'color',
+ *      'lighter-contrast': 'color',
+ *      'darker-contrast': 'color',
+ *      '50-contrast': 'color',
+ *      '100-contrast': 'color',
+ *      '200-contrast': 'color',
+ *      '300-contrast': 'color',
+ *      '400-contrast': 'color',
+ *      '500-contrast': 'color',
+ *      '600-contrast': 'color',
+ *      '700-contrast': 'color',
+ *      '800-contrast': 'color',
+ *      '900-contrast': 'color',
+ *      'A100-contrast': 'color',
+ *      'A200-contrast': 'color',
+ *      'A400-contrast': 'color',
+ *      'A700-contrast': 'color',
+ *      'contrast-contrast': null
+ *    },
+ *    'accent': {
+ *      '50': 'color',
+ *      '100': 'color',
+ *      '200': 'color',
+ *      '300': 'color',
+ *      '400': 'color',
+ *      '500': 'color',
+ *      '600': 'color',
+ *      '700': 'color',
+ *      '800': 'color',
+ *      '900': 'color',
+ *      'A100': 'color',
+ *      'A200': 'color',
+ *      'A400': 'color',
+ *      'A700': 'color',
+ *      'contrast': {
+ *        '50': 'color',
+ *        '100': 'color',
+ *        '200': 'color',
+ *        '300': 'color',
+ *        '400': 'color',
+ *        '500': 'color',
+ *        '600': 'color',
+ *        '700': 'color',
+ *        '800': 'color',
+ *        '900': 'color',
+ *        'A100': 'color',
+ *        'A200': 'color',
+ *        'A400': 'color',
+ *        'A700': 'color'
+ *      },
+ *      'default': 'color',
+ *      'lighter': 'color',
+ *      'darker': 'color',
+ *      'text': 'color',
+ *      'default-contrast': 'color',
+ *      'lighter-contrast': 'color',
+ *      'darker-contrast': 'color',
+ *      '50-contrast': 'color',
+ *      '100-contrast': 'color',
+ *      '200-contrast': 'color',
+ *      '300-contrast': 'color',
+ *      '400-contrast': 'color',
+ *      '500-contrast': 'color',
+ *      '600-contrast': 'color',
+ *      '700-contrast': 'color',
+ *      '800-contrast': 'color',
+ *      '900-contrast': 'color',
+ *      'A100-contrast': 'color',
+ *      'A200-contrast': 'color',
+ *      'A400-contrast': 'color',
+ *      'A700-contrast': 'color',
+ *      'contrast-contrast': null
+ *    },
+ *    'warn': {
+ *      '50': 'color',
+ *      '100': 'color',
+ *      '200': 'color',
+ *      '300': 'color',
+ *      '400': 'color',
+ *      '500': 'color',
+ *      '600': 'color',
+ *      '700': 'color',
+ *      '800': 'color',
+ *      '900': 'color',
+ *      'A100': 'color',
+ *      'A200': 'color',
+ *      'A400': 'color',
+ *      'A700': 'color',
+ *      'contrast': {
+ *        '50': 'color',
+ *        '100': 'color',
+ *        '200': 'color',
+ *        '300': 'color',
+ *        '400': 'color',
+ *        '500': 'color',
+ *        '600': 'color',
+ *        '700': 'color',
+ *        '800': 'color',
+ *        '900': 'color',
+ *        'A100': 'color',
+ *        'A200': 'color',
+ *        'A400': 'color',
+ *        'A700': 'color'
+ *      },
+ *      'default': 'color',
+ *      'lighter': 'color',
+ *      'darker': 'color',
+ *      'text': 'color',
+ *      'default-contrast': 'color',
+ *      'lighter-contrast': 'color',
+ *      'darker-contrast': 'color',
+ *      '50-contrast': 'color',
+ *      '100-contrast': 'color',
+ *      '200-contrast': 'color',
+ *      '300-contrast': 'color',
+ *      '400-contrast': 'color',
+ *      '500-contrast': 'color',
+ *      '600-contrast': 'color',
+ *      '700-contrast': 'color',
+ *      '800-contrast': 'color',
+ *      '900-contrast': 'color',
+ *      'A100-contrast': 'color',
+ *      'A200-contrast': 'color',
+ *      'A400-contrast': 'color',
+ *      'A700-contrast': 'color',
+ *      'contrast-contrast': null
+ *    },
+ *    'is-dark': true,
+ *    'foreground': {
+ *      'base': 'color',
+ *      'divider': 'color',
+ *      'dividers': 'color',
+ *      'disabled': 'color',
+ *      'disabled-button': 'color',
+ *      'disabled-text': 'color',
+ *      'elevation': 'color',
+ *      'hint-text': 'color',
+ *      'secondary-text': 'color',
+ *      'icon': 'color',
+ *      'icons': 'color',
+ *      'text': 'color',
+ *      'slider-min': 'color',
+ *      'slider-off': 'color',
+ *      'slider-off-active': 'color'
+ *    },
+ *    'background': {
+ *      'status-bar': 'color',
+ *      'app-bar': 'color',
+ *      'background': 'color',
+ *      'hover': 'color',
+ *      'card': 'color',
+ *      'dialog': 'color',
+ *      'disabled-button': 'color',
+ *      'raised-button': 'color',
+ *      'focused-button': 'color',
+ *      'selected-button': 'color',
+ *      'selected-disabled-button': 'color',
+ *      'disabled-button-toggle': 'color',
+ *      'unselected-chip': 'color',
+ *      'disabled-list-option': 'color'
+ *    }
+ *  }
+ */
+
+// Functions to get colors from theme palettes
+@function cf-mat-color-primary($hue: default, $theme: $my-care-theme) {
+  @return _cf-mat-get-color($hue, $theme, primary);
+}
+
+@function cf-mat-color-accent($hue: default, $theme: $my-care-theme) {
+  @return _cf-mat-get-color($hue, $theme, accent);
+}
+
+@function _cf-mat-get-color($hue, $theme, $palette-name) {
+  @if $palette-name != primary {
+    @if $palette-name != accent {
+      @error '$palette-name must be either "primary" or "accent"';
+      @return null;
+    }
+  }
+
+  $palette: map-get($theme, $palette-name);
+  @return mat-color($palette, $hue);
+}
+
+// Functions to get contrast colors from theme palettes
+@function cf-mat-color-primary-contrast($hue: default, $theme: $my-care-theme) {
+
+
+
+  @return _cf-mat-get-contrast-color($hue, $theme, primary);
+
+
+
+}
+
+@function cf-mat-color-accent-contrast($hue: default, $theme: $my-care-theme) {
+  @return _cf-mat-get-contrast-color($hue, $theme, accent);
+}
+
+@function _cf-mat-get-contrast-color($hue, $theme, $palette-name) {
+  @if $palette-name != primary {
+    @if $palette-name != accent {
+      @error '$palette-name must be either "primary" or "accent"';
+      @return null;
+    }
+  }
+  $palette: map-get($theme, $palette-name);
+  @return map-get($palette, #{$hue}-contrast);
+}
+
+// Functions to get colors out of the theme
+@function cf-mat-background-color($theme: $my-care-theme) {
+  @return _cf-mat-get-nested-property(background, background, $theme);
+}
+
+@function cf-mat-text-color($theme: $my-care-theme) {
+  @return _cf-mat-get-nested-property(foreground, text, $theme);
+}
+
+@function _cf-mat-get-nested-property($lv-1-key, $lv-2-key, $theme) {
+  $level1: map-get($theme, $lv-1-key);
+  @return map-get($level1, $lv-2-key);
+}

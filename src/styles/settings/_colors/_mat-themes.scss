@@ -1,0 +1,29 @@
+@import "cf-theming";
+
+// Key Lime Pie
+$keyLimePiePrimary: mat-palette($mat-lime, 500, 300, 700);
+$keyLimePieAccent: mat-palette($mat-light-blue, 500, 300, 700);
+$keyLimePieWarn: mat-palette($mat-deep-orange, A400, A200, A700);
+
+$keyLimePie: cf-mat-dark-theme($keyLimePiePrimary, $keyLimePieAccent, $keyLimePieWarn);
+
+// Candy
+$candyPrimary: mat-palette($mat-pink, 500, 300, 700);
+$candyAccent: mat-palette($mat-cyan, A400, A200, A700);
+$candyWarn: mat-palette($mat-orange, A400, A200, A700);
+
+$candy: cf-mat-dark-theme($candyPrimary, $candyAccent, $candyWarn);
+
+// Peppermint
+$peppermintPrimary: mat-palette($mat-teal, 300, 200, 500);
+$peppermintAccent: mat-palette($mat-teal, A200, A100, A400);
+$peppermintWarn: mat-palette($mat-orange, A400, A200, A700);
+
+$peppermint: cf-mat-dark-theme($peppermintPrimary, $peppermintAccent, $peppermintWarn);
+
+// Brite Bomb by Oliver O'Dell
+$briteBombPrimary: mat-palette($mat-cyan, A400, A200, A700);
+$briteBombAccent: mat-palette($mat-pink);
+$briteBombWarn: mat-palette($mat-purple, A400, A200, A700);
+
+$briteBomb: cf-mat-dark-theme($briteBombPrimary, $briteBombAccent, $briteBombWarn);

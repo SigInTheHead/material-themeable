@@ -1,0 +1,12 @@
+<section>
+  <header>
+    <mat-toolbar matThemeable color="primary" hue="A200">
+      <h3>{{title}}</h3>
+    </mat-toolbar>
+    <app-warning *ngFor="let warning of warnings">{{warning}}</app-warning>
+    <app-info *ngFor="let info of infos">{{info}}</app-info>
+  </header>
+  <div class="section">
+    <ng-content></ng-content>
+  </div>
+</section>

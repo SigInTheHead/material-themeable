@@ -1,0 +1,60 @@
+@import 'mat-palettes';
+@import '~@angular/material/theming';
+
+$primary: mat-palette($cf-blue-palette, 500, 400, 700);
+$accent: mat-palette($cf-blue-palette, 300, 200, 900);
+$warn: mat-palette($mat-green, 700, 500, 900);
+
+$dark-dividers: blue;
+$dark-disabled-text: map-get($primary, 300);
+$dark-focused: green;
+
+$cf-mat-theme-foreground: (
+  base: black,
+  divider: $dark-dividers,
+  dividers: $dark-dividers,
+  disabled: $dark-disabled-text,
+  disabled-button: rgba(black, 0.26),
+  disabled-text: $dark-disabled-text,
+  elevation: black,
+  hint-text: $dark-disabled-text,
+  secondary-text: rgba(black, 0.75),
+  icon: rgba(black, 0.54),
+  icons: rgba(black, 0.54),
+  text: rgba(black, 0.75),
+  slider-min: rgba(black, 0.87),
+  slider-off: rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+);
+
+$cf-mat-theme-background: (
+  status-bar: map_get($mat-grey, 300),
+  app-bar: map_get($mat-grey, 100),
+  background: map-get($primary, 50),
+  hover: rgba(black, 0.04),
+  card: map-get($accent, 100),
+  dialog: map-get($accent, 100),
+  disabled-button: rgba(black, 0.12),
+  raised-button: map-get($accent, 200),
+  focused-button: $dark-focused,
+  selected-button: map_get($mat-grey, 300),
+  selected-disabled-button: map_get($mat-grey, 400),
+  disabled-button-toggle: map_get($mat-grey, 200),
+  unselected-chip: map_get($mat-grey, 300),
+  disabled-list-option: map_get($mat-grey, 200),
+);
+
+@function cf-mat-light-theme() {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: true,
+    foreground: $cf-mat-theme-foreground,
+    background: $cf-mat-theme-background,
+  );
+}
+
+
+
+$lde-historic-theme: cf-mat-light-theme();

@@ -1,0 +1,12 @@
+$transition-durations: (
+  off: 0ms,
+  standard: 500ms,
+  fast: 250ms,
+  slow: 750ms,
+  very-slow: 1000ms,
+  glacial: 2000ms
+);
+
+@function cf-animation-transition($type: standard){
+  @return map_get($transition-durations, $type);
+}

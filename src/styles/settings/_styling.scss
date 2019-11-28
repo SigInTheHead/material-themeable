@@ -1,0 +1,20 @@
+$_opacity-values: (
+  transparent: 0,
+  light: 0.25,
+  standard: 0.5,
+  strong: 0.75,
+  opaque: 1
+);
+
+@function cf-style-opacity($opacity) {
+  @return map-get($_opacity-values, $opacity);
+}
+
+@function cf-style-drop-shadow($opacity: standard) {
+  @return 0 0 5px 5px rgba(0, 0, 0, cf-style-opacity($opacity));
+}
+
+@mixin cf-style-drop-shadow() {
+  -webkit-box-shadow: cf-style-drop-shadow();
+  box-shadow: cf-style-drop-shadow();
+}

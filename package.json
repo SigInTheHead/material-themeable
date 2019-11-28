@@ -3,15 +3,20 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port=4400",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "package:build": "ng build material-themeable",
+    "postpackage:build": "rsync -zarv -m --include='*/' --include='*.scss' --exclude='*' ./projects/material-themeable/src/ ./dist/material-themeable",
+    "prepackage:publish": "npm run package:build",
+    "package:publish": "cd dist/material-themeable && npm publish && cd ../../../"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.7",
+    "@angular/cdk": "8.2.3",
     "@angular/common": "~8.2.7",
     "@angular/compiler": "~8.2.7",
     "@angular/core": "~8.2.7",
@@ -26,6 +31,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.5",
+    "@angular-devkit/build-ng-packagr": "~0.803.20",
     "@angular/cli": "~8.3.5",
     "@angular/compiler-cli": "~8.2.7",
     "@angular/language-service": "~8.2.7",
@@ -40,8 +46,12 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
+    "ng-packagr": "^5.4.0",
     "protractor": "~5.4.0",
+    "tmo-tslint-angular-settings": "^1.0.1",
+    "tmo-tslint-settings": "^1.0.0",
     "ts-node": "~7.0.0",
+    "tsickle": "^0.37.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
   }

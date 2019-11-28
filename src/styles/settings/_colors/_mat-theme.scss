@@ -1,0 +1,15 @@
+@import "mat-palettes";
+@import "mat-error-theme";
+@import "cf-theming";
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$material-app-primary: mat-palette($cf-primary-palette, 500, 400, 800);
+$material-app-accent: mat-palette($cf-pink-palette, A400, A200, A700);
+$material-app-info: mat-palette($cf-blue-palette, A400, A200, A700);
+
+$cf-light-theme: cf-mat-light-theme($material-app-primary, $material-app-accent, $material-app-info);
+$cf-dark-theme: cf-mat-dark-theme($material-app-primary, $material-app-accent, $material-app-info);
+
+$my-care-theme: $cf-dark-theme;

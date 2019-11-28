@@ -1,0 +1,42 @@
+@import "~@angular/material/theming";
+@import "mat-theme";
+@import "functions";
+
+@mixin cf-mat-set-primary-colors($hue: default, $theme: $my-care-theme) {
+  background-color: cf-mat-color-primary($hue, $theme);
+  color: cf-mat-color-primary-contrast($hue, $theme);
+}
+/* stylelint-disable no-descending-specificity */
+@mixin cf-mat-set-primary-link-colors($hue: default, $theme: $my-care-theme) {
+  a {
+    &,
+    &:visited,
+    &:active {
+      ::ng-deep &,
+      & {
+        color: cf-mat-color-primary-contrast($hue, $theme);
+      }
+    }
+
+    &:hover {
+      ::ng-deep &,
+      & {
+        color: cf-mat-color-primary(100, $theme);
+      }
+    }
+  }
+}
+/* stylelint-enable */
+
+@mixin cf-mat-set-accent-colors($hue: default, $theme: $my-care-theme) {
+  background-color: cf-mat-color-accent($hue, $theme);
+  color: cf-mat-color-accent-contrast($hue, $theme);
+}
+
+@mixin my-care-typography($config) {
+  font: {
+    family: mat-font-family($config, body-1);
+    size: mat-font-size($config, body-1);
+    weight: mat-font-weight($config, body-1);
+  }
+}

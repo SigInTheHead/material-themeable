@@ -1,0 +1,49 @@
+//screen size, mobile first, so phone is assumed
+$screen-sizes-tablet: 321px;
+$screen-sizes-low-res: 481px;
+$screen-sizes-standard-res: 720px;
+$screen-sizes-high-res: 1440px;
+$screen-sizes-u-high-res: 1920px;
+$screen-sizes-material-match: 600px;
+
+@mixin mq-tablet{
+  @media only screen and (min-width: $screen-sizes-tablet) {
+    @content;
+  }
+}
+
+@mixin mq-ld{
+  @media only screen and (min-width: $screen-sizes-low-res) {
+    @content;
+  }
+}
+
+@mixin mq-sd {
+  @media only screen and (min-width: $screen-sizes-standard-res) {
+    @content;
+  }
+}
+
+@mixin mq-hd {
+  @media only screen and (min-width: $screen-sizes-high-res) {
+    @content;
+  }
+}
+
+@mixin mq-uhd {
+  @media only screen and (min-width: $screen-sizes-u-high-res) {
+    @content;
+  }
+}
+
+@mixin mq-material {
+  @media only screen and (min-width: $screen-sizes-material-match) {
+    @content;
+  }
+}
+
+@mixin mq-custom($min-width) {
+  @media only screen and (min-width: $min-width) {
+    @content;
+  }
+}

@@ -1,0 +1,282 @@
+// base color for theme is #791c7f
+// this is taken from the logo
+
+// basic palette generator https://htmlcolorcodes.com/color-picker/
+// material palette generator http://mcg.mbitson.com/
+
+// #791C7F
+// #7F1C54
+// #7F1C22
+// #7F471C
+// #7F791C
+// #547F1C
+// #1C547F
+
+/* stylelint-disable color-no-hex */
+
+$dark-primary-text: rgba(black, 0.87);
+$light-primary-text: white;
+
+$cf-primary-palette: (
+  50 : #efe4f0,
+  100 : #d7bbd9,
+  200 : #bc8ebf,
+  300 : #a160a5,
+  400 : #8d3e92,
+  500 : #791c7f,
+  600 : #711977,
+  700 : #66146c,
+  800 : #5c1162,
+  900 : #49094f,
+  A100 : #f385ff,
+  A200 : #ee52ff,
+  A400 : #e91fff,
+  A700 : #e605ff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+$cf-pink-palette: (
+  50 : #f0e4ea,
+  100 : #d9bbcc,
+  200 : #bf8eaa,
+  300 : #a56087,
+  400 : #923e6e,
+  500 : #7f1c54,
+  600 : #77194d,
+  700 : #6c1443,
+  800 : #62113a,
+  900 : #4f0929,
+  A100 : #ff85b6,
+  A200 : #ff5297,
+  A400 : #ff1f78,
+  A700 : #ff0569,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+$cf-red-palette: (
+  50 : #f0e4e4,
+  100 : #d9bbbd,
+  200 : #bf8e91,
+  300 : #a56064,
+  400 : #923e43,
+  500 : #7f1c22,
+  600 : #77191e,
+  700 : #6c1419,
+  800 : #621114,
+  900 : #4f090c,
+  A100 : #ff8587,
+  A200 : #ff5255,
+  A400 : #ff1f23,
+  A700 : #ff050a,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+$cf-orange-palette: (
+  50 : #f0e9e4,
+  100 : #d9c8bb,
+  200 : #bfa38e,
+  300 : #a57e60,
+  400 : #92633e,
+  500 : #7f471c,
+  600 : #774019,
+  700 : #6c3714,
+  800 : #622f11,
+  900 : #4f2009,
+  A100 : #ffa585,
+  A200 : #ff8052,
+  A400 : #ff5a1f,
+  A700 : #ff4805,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #ffffff,
+  )
+);
+
+$cf-yellow-palette: (
+  50 : #f0efe4,
+  100 : #d9d7bb,
+  200 : #bfbc8e,
+  300 : #a5a160,
+  400 : #928d3e,
+  500 : #7f791c,
+  600 : #777119,
+  700 : #6c6614,
+  800 : #625c11,
+  900 : #4f4909,
+  A100 : #fff385,
+  A200 : #ffee52,
+  A400 : #ffe91f,
+  A700 : #ffe605,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$cf-green-palette: (
+  50 : #eaf0e4,
+  100 : #ccd9bb,
+  200 : #aabf8e,
+  300 : #87a560,
+  400 : #6e923e,
+  500 : #547f1c,
+  600 : #4d7719,
+  700 : #436c14,
+  800 : #3a6211,
+  900 : #294f09,
+  A100 : #b6ff85,
+  A200 : #97ff52,
+  A400 : #78ff1f,
+  A700 : #69ff05,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$cf-blue-palette: (
+  50 : #e4eaf0,
+  100 : #bbccd9,
+  200 : #8eaabf,
+  300 : #6087a5,
+  400 : #3e6e92,
+  500 : #1c547f,
+  600 : #194d77,
+  700 : #14436c,
+  800 : #113a62,
+  900 : #09294f,
+  A100 : #85b6ff,
+  A200 : #5297ff,
+  A400 : #1f78ff,
+  A700 : #0569ff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+$mat-grey: (
+  50: #fafafa,
+  100: #f5f5f5,
+  200: #eeeeee,
+  300: #e0e0e0,
+  400: #bdbdbd,
+  500: #9e9e9e,
+  600: #757575,
+  700: #616161,
+  800: #424242,
+  900: #212121,
+  A100: #ffffff,
+  A200: #eeeeee,
+  A400: #bdbdbd,
+  A700: #616161,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
+  )
+);

@@ -1,0 +1,43 @@
+$cf-size-reset: 0;
+
+$_cf-sizes-padding: (
+  0: 0,
+  very-small: 2px,
+  small: 5px,
+  standard: 10px,
+  large: 15px,
+  very-large: 25px
+);
+
+$_cf-sizes-margin: (
+  0: 0,
+  none: 0,
+  very-small: 2px,
+  small: 5px,
+  standard: 10px,
+  large: 15px,
+  very-large: 25px
+);
+
+@function cf-sizes-padding($args...) {
+  @return _cf-get-size($_cf-sizes-padding, $args...);
+}
+
+@function cf-sizes-margin($args...) {
+  @return _cf-get-size($_cf-sizes-margin, $args...);
+}
+
+@function _cf-get-size($sizeCollection, $args...) {
+  $output: '';
+
+  @if length($args) == 0 {
+    @return map-get($_cf-sizes-padding, standard);
+  }
+
+  @each $arg in $args {
+    $output: $output + '#{map-get($_cf-sizes-padding, $arg)} ';
+  }
+
+  @return unquote($output);
+}
+

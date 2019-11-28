@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "material-themeable": [
+        "dist/material-themeable"
+      ],
+      "material-themeable/*": [
+        "dist/material-themeable/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

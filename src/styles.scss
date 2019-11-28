@@ -1,1 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
+@import "theme";
+@import '~@angular/material/theming';
+@import "~material-themeable/theming";
+
+@include mat-core();
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+p,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+@mixin set-mat-theme($theme) {
+  @include angular-material-theme($theme);
+  @include material-themeable($theme);
+}
+
+body {
+  background-color: cf-mat-background-color();
+  color: cf-mat-text-color();
+
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  margin: $cf-size-reset;
+
+  @include cf-mat-set-primary-link-colors();
+
+  &.key-lime-pie {
+    @include set-mat-theme($keyLimePie);
+  }
+
+  &.candy {
+    @include set-mat-theme($candy);
+  }
+
+  &.peppermint {
+    @include set-mat-theme($peppermint);
+  }
+
+  &.brite-bomb {
+    @include set-mat-theme($briteBomb);
+  }
+
+}
+
+a,
+a:visited,
+a:active {
+  color: cf-mat-text-color();
+  text-decoration: none;
+}
+
+a:hover {
+  color: cf-mat-color-primary(100);
+}
+
+// global material overrides
+.mat-button-base {
+  transition: color _cf-animation-transition(), background-color _cf-animation-transition();
+
+  .mat-ripple {
+    transition: unset;
+  }
+}
+
+.mat-toolbar {
+  transition: color _cf-animation-transition(), background-color _cf-animation-transition();
+
+  .mat-button-base {
+    transition: unset;
+  }
+}
+
+

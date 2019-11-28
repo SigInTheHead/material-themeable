@@ -1,0 +1,24 @@
+<app-demo-section title="Interactions">
+  <div matThemeable verticalPadding="standard">
+    <div>
+      <mat-button-toggle-group name="color" [value]="color" (change)="onColorChange($event)">
+        <mat-button-toggle value="base">Base</mat-button-toggle>
+        <mat-button-toggle value="primary">Primary</mat-button-toggle>
+        <mat-button-toggle value="accent">Accent</mat-button-toggle>
+        <mat-button-toggle value="warn">Warn</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="hue" (selectionChange)="onHueChange($event)" [value]="hue">
+          <mat-option *ngFor="let hue of hues" [value]="hue">{{hue}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div matThemeable [color]="color" [hue]="hue" padding="standard" verticalMargin="standard">color="{{color}}" hue="{{hue}}"</div>
+    <div matThemeable color="primary" [hue]="hue" padding="standard" verticalMargin="standard">color="primary" hue="{{hue}}"</div>
+    <div matThemeable color="accent" [hue]="hue" padding="standard" verticalMargin="standard">color="accent" hue="{{hue}}"</div>
+    <div matThemeable color="warn" [hue]="hue" padding="standard" verticalMargin="standard">color="warn" hue="{{hue}}"</div>
+
+  </div>
+</app-demo-section>
