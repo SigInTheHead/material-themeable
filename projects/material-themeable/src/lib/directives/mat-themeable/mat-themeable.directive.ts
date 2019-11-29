@@ -6,7 +6,38 @@ import { MatThemeableHue, MatThemeableLayout, MatThemeablePalette, MatThemeableS
 })
 export class MatThemeableDirective implements OnInit {
 
-  public get hue(): MatThemeableHue{
+  public get color(): MatThemeablePalette {
+    return this._color;
+  }
+
+  /**
+   * @description
+   * Adds mat-[ThemePalette] class
+   */
+  @Input()
+  public set color(value: MatThemeablePalette) {
+    this._unsetColor();
+    this._color = value;
+    this._setColor();
+  }
+
+  public get horizontalMargin(): MatThemeableSize {
+    return this._horizontalMargin;
+  }
+
+  /**
+   * @description
+   * adds margin-horizontal-[MatThemeableSize] class
+   */
+  @Input()
+  public set horizontalMargin(value: MatThemeableSize) {
+    console.log('horizontalMargin', value);
+    this._unsetMargin();
+    this._horizontalMargin = value;
+    this._setSizes('margin', value, this._verticalMargin)
+  }
+
+  public get hue(): MatThemeableHue {
     return this._hue;
   }
 
@@ -27,30 +58,35 @@ export class MatThemeableDirective implements OnInit {
     this._hue = value;
     this._setColor();
   }
-
-  public get color(): MatThemeablePalette {
-    return this._color;
+  public get margin(): MatThemeableSize {
+    return this._margin;
   }
 
   /**
    * @description
-   * Adds mat-[ThemePalette] class
+   * Over rides horizontalMargin and verticalMargin
    */
   @Input()
-  public set color(value: MatThemeablePalette) {
-    this._unsetColor();
-    this._color = value;
-    this._setColor();
+  public set margin(value: MatThemeableSize) {
+    console.log('set margin');
+    this._margin = value;
+    this._setMargin();
   }
 
-  private _color: MatThemeablePalette;
+  public get verticalMargin(): MatThemeableSize {
+    return this._verticalMargin;
+  }
 
   /**
    * @description
-   * adds margin-horizontal-[MatThemeableSize] class
+   * adds margin-vertical-[MatThemeableSize] class
    */
   @Input()
-  public horizontalMargin: MatThemeableSize;
+  public set verticalMargin(value: MatThemeableSize) {
+    this._unsetMargin();
+    this._verticalMargin = value;
+    this._setSizes('margin', this.horizontalMargin, value)
+  }
 
   /**
    * @description
@@ -58,8 +94,6 @@ export class MatThemeableDirective implements OnInit {
    */
   @Input()
   public horizontalPadding: MatThemeableSize;
-
-  private _hue: MatThemeableHue = 'default';
 
   /**
    * @description
@@ -70,13 +104,6 @@ export class MatThemeableDirective implements OnInit {
 
   /**
    * @description
-   * Over rides horizontalMargin and verticalMargin
-   */
-  @Input()
-  public margin: MatThemeableSize;
-
-  /**
-   * @description
    * Over rides horizontalPadding and verticalPadding
    */
   @Input()
@@ -84,17 +111,20 @@ export class MatThemeableDirective implements OnInit {
 
   /**
    * @description
-   * adds margin-vertical-[MatThemeableSize] class
-   */
-  @Input()
-  public verticalMargin: MatThemeableSize;
-
-  /**
-   * @description
    * adds padding-vertical-[MatThemeableSize] class
    */
   @Input()
   public verticalPadding: MatThemeableSize;
+
+  private _color: MatThemeablePalette;
+
+  private _horizontalMargin: MatThemeableSize;
+
+  private _hue: MatThemeableHue = 'default';
+
+  private _margin: MatThemeableSize;
+
+  private _verticalMargin: MatThemeableSize;
 
   constructor(private _el: ElementRef,
               private _renderer: Renderer2) {
@@ -129,23 +159,15 @@ export class MatThemeableDirective implements OnInit {
     this._renderer.addClass(this._el.nativeElement, `color-${this._color}-${this._hue}`);
   }
 
-  private _unsetColor(): void {
-    if (this._color === 'base') {
-      this._renderer.removeClass(this._el.nativeElement, `color-${this._color}`);
-      return;
-    }
-
-    this._renderer.removeClass(this._el.nativeElement, `color-${this._color}-${this._hue}`);
-  }
-
   private _setLayout(): void {
     this._renderer.addClass(this._el.nativeElement, `layout-${this.layout}`);
   }
 
   private _setMargin(): void {
-    if (this.margin) {
-      this.horizontalMargin = this.margin;
-      this.verticalMargin = this.margin;
+    if (this._margin) {
+      console.log('_setMargin');
+      this._horizontalMargin = this._margin;
+      this._verticalMargin = this._margin;
     }
   }
 
@@ -165,6 +187,25 @@ export class MatThemeableDirective implements OnInit {
     if (vertical !== undefined) {
       this._renderer.addClass(this._el.nativeElement, `${type}-vertical-${vertical}`);
     }
+  }
+
+  private _unsetColor(): void {
+    if (this._color === 'base') {
+      this._renderer.removeClass(this._el.nativeElement, `color-${this._color}`);
+      return;
+    }
+
+    this._renderer.removeClass(this._el.nativeElement, `color-${this._color}-${this._hue}`);
+  }
+
+  private _unsetMargin(): void {
+    this._renderer.removeClass(this._el.nativeElement, `margin-horizontal-${this.horizontalMargin}`);
+    this._renderer.removeClass(this._el.nativeElement, `margin-vertical-${this.verticalMargin}`);
+  }
+
+  private _unsetPadding(): void {
+    this._renderer.removeClass(this._el.nativeElement, `padding-horizontal-${this.horizontalMargin}`);
+    this._renderer.removeClass(this._el.nativeElement, `padding-vertical-${this.verticalMargin}`);
   }
 
 }
