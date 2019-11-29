@@ -1,4 +1,4 @@
-<app-demo-section title="Interactions">
+<app-demo-section title="Color Interactions">
   <div matThemeable verticalPadding="standard">
     <div>
       <mat-button-toggle-group name="color" [value]="color" (change)="onColorChange($event)">
@@ -19,6 +19,52 @@
     <div matThemeable color="primary" [hue]="hue" padding="standard" verticalMargin="standard">color="primary" hue="{{hue}}"</div>
     <div matThemeable color="accent" [hue]="hue" padding="standard" verticalMargin="standard">color="accent" hue="{{hue}}"</div>
     <div matThemeable color="warn" [hue]="hue" padding="standard" verticalMargin="standard">color="warn" hue="{{hue}}"</div>
-
   </div>
 </app-demo-section>
+<app-demo-section title="Margin Interactions" class="margin">
+<!--  <div matThemeable verticalPadding="standard">-->
+<!--    <p>Margin</p>-->
+<!--    <mat-button-toggle-group name="margin" [value]="margin" (change)="onMarginChange($event)">-->
+<!--      <mat-button-toggle value="none">none</mat-button-toggle>-->
+<!--      <mat-button-toggle value="very-small">very-small</mat-button-toggle>-->
+<!--      <mat-button-toggle value="small">small</mat-button-toggle>-->
+<!--      <mat-button-toggle value="standard">standard</mat-button-toggle>-->
+<!--      <mat-button-toggle value="large">large</mat-button-toggle>-->
+<!--      <mat-button-toggle value="very-large">very-large</mat-button-toggle>-->
+<!--    </mat-button-toggle-group>-->
+<!--  </div>-->
+  <div matThemeable verticalPadding="standard">
+    <p>Vertical Margin</p>
+    <mat-button-toggle-group name="verticalMargin" [value]="verticalMargin" (change)="onMarginVerticalChange($event)">
+      <mat-button-toggle value="none">none</mat-button-toggle>
+      <mat-button-toggle value="very-small">very-small</mat-button-toggle>
+      <mat-button-toggle value="small">small</mat-button-toggle>
+      <mat-button-toggle value="standard">standard</mat-button-toggle>
+      <mat-button-toggle value="large">large</mat-button-toggle>
+      <mat-button-toggle value="very-large">very-large</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div matThemeable verticalPadding="standard">
+    <p>Horizontal Margin</p>
+    <mat-button-toggle-group name="horizontalMargin"  [value]="horizontalMargin" (change)="onMarginHorizontalChange($event)">
+      <mat-button-toggle value="none">none</mat-button-toggle>
+      <mat-button-toggle value="very-small">very-small</mat-button-toggle>
+      <mat-button-toggle value="small">small</mat-button-toggle>
+      <mat-button-toggle value="standard">standard</mat-button-toggle>
+      <mat-button-toggle value="large">large</mat-button-toggle>
+      <mat-button-toggle value="very-large">very-large</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div matThemeable color="base">
+    <div
+      matThemeable
+      padding="standard"
+      color="accent"
+      [margin]="margin"
+      [horizontalMargin]="horizontalMargin"
+      [verticalMargin]="verticalMargin">
+      margin="{{margin}}" horizontalMargin="{{horizontalMargin}}" verticalMargin="{{verticalMargin}}"
+    </div>
+  </div>
+</app-demo-section>
+
