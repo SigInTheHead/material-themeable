@@ -31,7 +31,6 @@ export class MatThemeableDirective implements OnInit {
    */
   @Input()
   public set horizontalMargin(value: MatThemeableSize) {
-    console.log('horizontalMargin', value);
     this._unsetMargin();
     this._horizontalMargin = value;
     this._setSizes('margin', value, this._verticalMargin)
@@ -68,7 +67,6 @@ export class MatThemeableDirective implements OnInit {
    */
   @Input()
   public set margin(value: MatThemeableSize) {
-    console.log('set margin');
     this._margin = value;
     this._setMargin();
   }
@@ -165,7 +163,6 @@ export class MatThemeableDirective implements OnInit {
 
   private _setMargin(): void {
     if (this._margin) {
-      console.log('_setMargin');
       this._horizontalMargin = this._margin;
       this._verticalMargin = this._margin;
     }
