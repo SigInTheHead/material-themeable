@@ -31,13 +31,12 @@ So from this
 ```scss
 @include angular-material-theme($my-theme);
 ```
-
 to this
 ```scss
 @include angular-material-theme($my-theme);
 @include material-themeable($my-theme);
 ```
-if you have multiple themes available you will need to include this theme just as you do the angular theme
+if you have multiple themes available you will need to include material themeable just as you do the angular theme
 ```scss
 body {
 ...
@@ -76,9 +75,9 @@ This will give a standard material tool bar, but using the themes primary light 
 |---|---|---|
 | `color` | sets the background color and text color using a one of the themes palettes | MatThemeablePalette |
 | `hue` | modifies the color using additional colors in the palette | MatThemeableHue |
-| `layout` | sets a predefined layout, if used margin and padding are ignored | MatThemeableLayout |
-| `margin` | sets predefined margin, if used horizontalMargin and verticalMargin are ignored | MatThemeableSize |
-| `padding` | sets predefined padding, if used horizontalPadding and verticalPadding are ignored | MatThemeableSize |
+| `layout` | sets a predefined layout, if used `margin` and `padding` are ignored | MatThemeableLayout |
+| `margin` | sets predefined margin, if used `horizontalMargin` and `verticalMargin` are ignored | MatThemeableSize |
+| `padding` | sets predefined padding, if used `horizontalPadding` and `verticalPadding` are ignored | MatThemeableSize |
 | `horizontalMargin` | sets predefined margin-left and margin-right | MatThemeableSize |
 | `verticalMargin` | sets predefined margin-top and margin-bottom | MatThemeableSize |
 | `horizontalPadding` | sets predefined padding-left and padding-right | MatThemeableSize |
@@ -90,7 +89,7 @@ __*Warning* - using this option can very quickly lead to an incoherent design!__
 only use the `'default'`, `'lighter'` and `'darker'`. This is especially true if your site has the ability to switch
 themes.
 
-Don't say you weren't warned!!!
+__Don't say you weren't warned!!!__
  - `'50'`
  - `'100'`
  - `'200'`
