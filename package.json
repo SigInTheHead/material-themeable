@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "package:build": "ng build material-themeable",
+    "package:build": "ng build material-themeable --prod",
     "postpackage:build": "rsync -zarv -m --include='*/' --include='*.scss' --exclude='*' ./projects/material-themeable/src/ ./dist/material-themeable",
     "prepackage:publish": "npm run package:build",
     "package:publish": "cd dist/material-themeable && npm publish && cd ../../../"
