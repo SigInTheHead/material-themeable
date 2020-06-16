@@ -16,3 +16,7 @@
   background: cf-mat-color($palette, $hue);
   color: cf-mat-color($palette, #{$hue}-contrast);
 }
+
+@mixin cf-mat-text-theme-color($palette, $hue) {
+  color: cf-mat-color($palette, $hue);
+}

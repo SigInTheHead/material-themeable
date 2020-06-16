@@ -33,6 +33,12 @@
   }
 }
 
+@mixin _mat-themeable-text-color-classes($theme, $hues...) {
+  @each $hue in $hues {
+    @include cf-mat-text-colors($theme, $hue);
+  }
+}
+
 @mixin cf-mat-colors($theme, $hue) {
   &.color-base {
     background: cf-mat-color(map-get($theme, background), app-bar);
@@ -48,6 +54,21 @@
 
   &.color-warn-#{$hue} {
     @include cf-mat-theme-color(map-get($theme, warn), $hue);
+  }
+
+}
+
+@mixin cf-mat-text-colors($theme, $hue) {
+  &-color-primary-#{$hue} {
+    @include cf-mat-text-theme-color(map-get($theme, primary), $hue);
+  }
+
+  &-color-accent-#{$hue} {
+    @include cf-mat-text-theme-color(map-get($theme, accent), $hue);
+  }
+
+  &-color-warn-#{$hue} {
+    @include cf-mat-text-theme-color(map-get($theme, warn), $hue);
   }
 
 }
@@ -80,5 +101,9 @@
         padding: _cf-get-size($padding-sizes, very-large);
       }
     }
+  }
+
+  .mat-themeable-text {
+    @include _mat-themeable-text-color-classes($theme, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700, default, lighter, darker);
   }
 }

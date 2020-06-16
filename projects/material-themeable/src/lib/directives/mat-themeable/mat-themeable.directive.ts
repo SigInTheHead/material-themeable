@@ -1,5 +1,11 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
-import { MatThemeableHue, MatThemeableLayout, MatThemeablePalette, MatThemeableSize, MatThemeableSizeType } from './mat-themeable.types';
+import {
+  MatThemeableHue,
+  MatThemeableLayout,
+  MatThemeablePalette,
+  MatThemeableSize,
+  MatThemeableSizeType
+} from './mat-themeable.directive.types';
 
 @Directive({
   selector: '[matThemeable]'
@@ -33,7 +39,7 @@ export class MatThemeableDirective implements OnInit {
   public set horizontalMargin(value: MatThemeableSize) {
     this._unsetMargin();
     this._horizontalMargin = value;
-    this._setSizes('margin', value, this._verticalMargin)
+    this._setSizes('margin', value, this._verticalMargin);
   }
 
   public get hue(): MatThemeableHue {
@@ -57,6 +63,7 @@ export class MatThemeableDirective implements OnInit {
     this._hue = value;
     this._setColor();
   }
+
   public get margin(): MatThemeableSize {
     return this._margin;
   }
@@ -83,7 +90,7 @@ export class MatThemeableDirective implements OnInit {
   public set verticalMargin(value: MatThemeableSize) {
     this._unsetMargin();
     this._verticalMargin = value;
-    this._setSizes('margin', this.horizontalMargin, value)
+    this._setSizes('margin', this.horizontalMargin, value);
   }
 
   /**
@@ -145,7 +152,7 @@ export class MatThemeableDirective implements OnInit {
     this._setSizes('margin', this.horizontalMargin, this.verticalMargin);
   }
 
-  private _setColor(): void {
+  protected _setColor(): void {
     if (this._color === undefined) {
       return;
     }
