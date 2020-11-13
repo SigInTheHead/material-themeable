@@ -141,7 +141,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/material-themeable/tsconfig.lib.json",
             "project": "projects/material-themeable/ng-package.json"
