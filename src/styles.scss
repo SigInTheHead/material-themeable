@@ -1,8 +1,9 @@
-@import "theme";
-@import '~@angular/material/theming';
-@import "~material-themeable/theming";
+@use '~@angular/material' as mat;
+@use "dist/material-themeable/theming" as matTheme;
 
-@include mat-core();
+@import "theme";
+
+@include mat.core();
 
 html,
 body {
@@ -31,8 +32,8 @@ li {
 }
 
 @mixin set-mat-theme($theme) {
-  @include angular-material-theme($theme);
-  @include material-themeable($theme);
+  @include mat.core-theme($theme);
+  @include matTheme.theme($theme);
 }
 
 body {

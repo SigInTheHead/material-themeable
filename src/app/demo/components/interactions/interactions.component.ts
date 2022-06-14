@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatButtonToggleChange, MatSelectChange } from '@angular/material';
+import { MatButtonToggleChange } from '@angular/material/button-toggle';
+import { MatSelectChange } from '@angular/material/select';
 import { MatThemeableHue, MatThemeablePalette, MatThemeableSize } from 'material-themeable';
 
 @Component({
@@ -15,13 +16,19 @@ export class InteractionsComponent implements OnInit {
 
   public horizontalMargin: MatThemeableSize;
 
+  public horizontalPadding: MatThemeableSize;
+
   public hue: MatThemeableHue = 'default';
 
   public hues: Array<MatThemeableHue> = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', 'A100', 'A200', 'A400', 'A700', 'default', 'lighter', 'darker'];
 
   public margin: MatThemeableSize;
 
+  public padding: MatThemeableSize;
+
   public verticalMargin: MatThemeableSize;
+
+  public verticalPadding: MatThemeableSize;
 
   constructor() {
   }
@@ -47,6 +54,14 @@ export class InteractionsComponent implements OnInit {
 
   public onMarginVerticalChange(ev: MatButtonToggleChange): void {
     this.verticalMargin = ev.value;
+  }
+
+  public onPaddingHorizontalChange(ev: MatButtonToggleChange): void {
+    this.horizontalPadding = ev.value;
+  }
+
+  public onPaddingVerticalChange(ev: MatButtonToggleChange): void {
+    this.verticalPadding = ev.value;
   }
 
 }

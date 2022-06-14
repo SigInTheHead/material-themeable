@@ -93,12 +93,35 @@ export class MatThemeableDirective implements OnInit {
     this._setSizes('margin', this.horizontalMargin, value);
   }
 
+  public get horizontalPadding(): MatThemeableSize {
+    return this._horizontalPadding;
+  }
+
   /**
    * @description
    * adds padding-horizontal-[MatThemeableSize] class
    */
   @Input()
-  public horizontalPadding: MatThemeableSize;
+  public set horizontalPadding(value: MatThemeableSize) {
+    this._unsetPadding();
+    this._horizontalPadding = value;
+    this._setSizes('padding', value, this._verticalPadding);
+  }
+
+  public get verticalPadding(): MatThemeableSize {
+    return this._verticalPadding;
+  }
+
+  /**
+   * @description
+   * adds padding-vertical-[MatThemeableSize] class
+   */
+  @Input()
+  public set verticalPadding(value: MatThemeableSize) {
+    this._unsetPadding();
+    this._verticalPadding = value;
+    this._setSizes('padding', this.horizontalPadding, value);
+  }
 
   /**
    * @description
@@ -114,22 +137,19 @@ export class MatThemeableDirective implements OnInit {
   @Input()
   public padding: MatThemeableSize;
 
-  /**
-   * @description
-   * adds padding-vertical-[MatThemeableSize] class
-   */
-  @Input()
-  public verticalPadding: MatThemeableSize;
-
   private _color: MatThemeablePalette;
 
   private _horizontalMargin: MatThemeableSize;
+
+  private _horizontalPadding: MatThemeableSize;
 
   private _hue: MatThemeableHue = 'default';
 
   private _margin: MatThemeableSize;
 
   private _verticalMargin: MatThemeableSize;
+
+  private _verticalPadding: MatThemeableSize;
 
   constructor(private _el: ElementRef,
               private _renderer: Renderer2) {
@@ -177,8 +197,8 @@ export class MatThemeableDirective implements OnInit {
 
   private _setPadding(): void {
     if (this.padding) {
-      this.horizontalPadding = this.padding;
-      this.verticalPadding = this.padding;
+      this._horizontalPadding = this.padding;
+      this._verticalPadding = this.padding;
     }
   }
 
@@ -208,8 +228,8 @@ export class MatThemeableDirective implements OnInit {
   }
 
   private _unsetPadding(): void {
-    this._renderer.removeClass(this._el.nativeElement, `padding-horizontal-${this.horizontalMargin}`);
-    this._renderer.removeClass(this._el.nativeElement, `padding-vertical-${this.verticalMargin}`);
+    this._renderer.removeClass(this._el.nativeElement, `padding-horizontal-${this.horizontalPadding}`);
+    this._renderer.removeClass(this._el.nativeElement, `padding-vertical-${this.verticalPadding}`);
   }
 
 }

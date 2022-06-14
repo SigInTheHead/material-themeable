@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialThemeableModule } from 'material-themeable';
+import { DemoSectionComponent } from './components/demo-section/demo-section.component';
 import { InfoComponent } from './components/info/info.component';
 import { WarningComponent } from './components/warning/warning.component';
-import { DemoSectionComponent } from './components/demo-section/demo-section.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [WarningComponent, InfoComponent, DemoSectionComponent],
