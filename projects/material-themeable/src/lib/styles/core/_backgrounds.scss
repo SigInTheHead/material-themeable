@@ -12,7 +12,7 @@
   }
 }
 
-@mixin mat-colors($theme, $hue, $extension-palettes-map) {
+@mixin mat-colors($theme, $hue) {
   &.color-base {
     background: core-color.mat-color(map-get($theme, background), app-bar);
     color: core-color.mat-color(map-get($theme, foreground), text);
@@ -29,16 +29,10 @@
   &.color-warn-#{$hue} {
     @include mat-theme-color(map-get($theme, warn), $hue);
   }
-
-  @each $key, $palette in $extension-palettes-map {
-    &.color-#{$key}-#{$hue} {
-      @include mat-theme-color($palette, $hue);
-    }
-  }
 }
 
-@mixin mat-themeable-color-classes($theme, $extension-palettes-map, $hues) {
+@mixin mat-themeable-color-classes($theme, $hues) {
   @each $hue in $hues {
-    @include mat-colors($theme, $hue, $extension-palettes-map);
+    @include mat-colors($theme, $hue);
   }
 }

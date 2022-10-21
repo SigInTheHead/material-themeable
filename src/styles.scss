@@ -1,6 +1,7 @@
 @use 'node_modules/@angular/material' as mat;
 @use "../dist/material-themeable" as matTheme;
-@import "mt-fuji";
+@import "styles/color-themes/mt-fuji";
+@import "styles/color-themes/balloons";
 @import "theme";
 
 @include mat.core();
@@ -31,9 +32,10 @@ li {
   list-style: none;
 }
 
-@mixin set-mat-theme($theme, $extension-palettes: ()) {
+@mixin set-mat-theme($theme, $extended-palette-map: ()) {
   @include mat.core-theme($theme);
-  @include matTheme.background-colors($theme, $extension-palettes);
+  @include matTheme.theme-colors($theme);
+  @include matTheme.extended-theme-colors($extended-palette-map);
 }
 
 body {
@@ -52,18 +54,21 @@ body {
   //}
 
   &.candy {
-    $mt-fuji-one: mat.define-palette($mt-fuji-one);
-    $mt-fuji-two: mat.define-palette($mt-fuji-two);
-    $mt-fuji-three: mat.define-palette($mt-fuji-three);
-    $mt-fuji-four: mat.define-palette($mt-fuji-four);
-    $mt-fuji-five: mat.define-palette($mt-fuji-five);
-
     $extension: (
-      mt-fuji-one: mat.define-palette($mt-fuji-one),
-      mt-fuji-two: mat.define-palette($mt-fuji-two),
-      mt-fuji-three: mat.define-palette($mt-fuji-three),
-      mt-fuji-four: mat.define-palette($mt-fuji-four),
-      mt-fuji-five: mat.define-palette($mt-fuji-five)
+      mt-fuji: (
+        one: mat.define-palette($mt-fuji-one),
+        two: mat.define-palette($mt-fuji-two),
+        three: mat.define-palette($mt-fuji-three),
+        four: mat.define-palette($mt-fuji-four),
+        five: mat.define-palette($mt-fuji-five)
+      ),
+      balloons: (
+        one: mat.define-palette($balloons-one),
+        two: mat.define-palette($balloons-two),
+        three: mat.define-palette($balloons-three),
+        four: mat.define-palette($balloons-four),
+        five: mat.define-palette($balloons-five)
+      )
     );
 
     @include set-mat-theme($candy, $extension);

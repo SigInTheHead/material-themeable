@@ -1,14 +1,27 @@
 @use "core" as _core;
 
-@mixin background-colors($theme, $extension-palettes-map: ()) {
+@mixin theme-colors($theme) {
   .mat-themeable {
     transition: color _core.cf-animation-transition(fast), background-color _core.cf-animation-transition(fast);
 
     @include _core.color-base($theme);
 
-    @include _core.mat-themeable-color-classes($theme, $extension-palettes-map, _core.$hues);
+    @include _core.mat-themeable-color-classes($theme, _core.$hues);
   }
+}
 
+@mixin extended-theme-colors($extension-palettes-map: ()) {
+  .mat-themeable {
+    @each $themeKey, $theme in $extension-palettes-map {
+      @each $hue in _core.$hues {
+        @each $paletteKey, $palette in $theme {
+          &.color-#{$themeKey}-#{$paletteKey}-#{$hue} {
+            @include _core.mat-theme-color($palette, $hue);
+          }
+        }
+      }
+    }
+  }
 }
 
 @mixin layout($margin-sizes: _core.$cf-sizes, $padding-sizes: _core.$cf-sizes) {
