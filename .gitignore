@@ -1,5 +1,6 @@
 # IDE Settings
 .idea
+.angular
 
 # dependencies
 node_modules
