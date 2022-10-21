@@ -1,5 +1,5 @@
 @import 'mat-palettes';
-@import '~@angular/material/theming';
+@import "node_modules/@angular/material/theming";
 
 $primary: mat-palette($cf-blue-palette, 500, 400, 700);
 $accent: mat-palette($cf-blue-palette, 300, 200, 900);

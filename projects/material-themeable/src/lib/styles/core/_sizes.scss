@@ -2,7 +2,7 @@
 //
 // Used for both padding and margin
 // to override these sizes you must provide each of the keys
-$_cf-sizes: (
+$cf-sizes: (
   none: 0,
   very-small: 2px,
   small: 5px,
@@ -11,7 +11,7 @@ $_cf-sizes: (
   very-large: 25px
 );
 
-@function _cf-get-size($sizeCollection, $args...) {
+@function get-size($sizeCollection, $args...) {
   $output: '';
 
   @if length($args) == 0 {
@@ -23,4 +23,31 @@ $_cf-sizes: (
   }
 
   @return unquote($output);
+}
+
+@mixin mat-themeable-size-classes($margin-config, $padding-config, $sizes...) {
+  @each $size in $sizes {
+    $padding: get-size($padding-config, $size);
+    $margin: get-size($margin-config, $size);
+
+    &.padding-vertical-#{$size} {
+      padding-bottom: $padding;
+      padding-top: $padding;
+    }
+
+    &.padding-horizontal-#{$size} {
+      padding-left: $padding;
+      padding-right: $padding;
+    }
+
+    &.margin-vertical-#{$size} {
+      margin-bottom: $margin;
+      margin-top: $margin;
+    }
+
+    &.margin-horizontal-#{$size} {
+      margin-left: $margin;
+      margin-right: $margin;
+    }
+  }
 }

@@ -1,6 +1,6 @@
-@use '~@angular/material' as mat;
-@use "dist/material-themeable/theming" as matTheme;
-
+@use 'node_modules/@angular/material' as mat;
+@use "../dist/material-themeable" as matTheme;
+@import "mt-fuji";
 @import "theme";
 
 @include mat.core();
@@ -31,9 +31,9 @@ li {
   list-style: none;
 }
 
-@mixin set-mat-theme($theme) {
+@mixin set-mat-theme($theme, $extension-palettes: ()) {
   @include mat.core-theme($theme);
-  @include matTheme.theme($theme);
+  @include matTheme.background-colors($theme, $extension-palettes);
 }
 
 body {
@@ -45,22 +45,37 @@ body {
   margin: $cf-size-reset;
 
   @include cf-mat-set-primary-link-colors();
+  @include matTheme.layout();
 
-  &.key-lime-pie {
-    @include set-mat-theme($keyLimePie);
-  }
+  //&.key-lime-pie {
+  //  @include set-mat-theme($keyLimePie);
+  //}
 
   &.candy {
-    @include set-mat-theme($candy);
+    $mt-fuji-one: mat.define-palette($mt-fuji-one);
+    $mt-fuji-two: mat.define-palette($mt-fuji-two);
+    $mt-fuji-three: mat.define-palette($mt-fuji-three);
+    $mt-fuji-four: mat.define-palette($mt-fuji-four);
+    $mt-fuji-five: mat.define-palette($mt-fuji-five);
+
+    $extension: (
+      mt-fuji-one: mat.define-palette($mt-fuji-one),
+      mt-fuji-two: mat.define-palette($mt-fuji-two),
+      mt-fuji-three: mat.define-palette($mt-fuji-three),
+      mt-fuji-four: mat.define-palette($mt-fuji-four),
+      mt-fuji-five: mat.define-palette($mt-fuji-five)
+    );
+
+    @include set-mat-theme($candy, $extension);
   }
 
-  &.peppermint {
-    @include set-mat-theme($peppermint);
-  }
-
-  &.brite-bomb {
-    @include set-mat-theme($briteBomb);
-  }
+  //&.peppermint {
+  //  @include set-mat-theme($peppermint);
+  //}
+  //
+  //&.brite-bomb {
+  //  @include set-mat-theme($briteBomb);
+  //}
 
 }
 
@@ -76,20 +91,18 @@ a:hover {
 }
 
 // global material overrides
-.mat-button-base {
-  transition: color _cf-animation-transition(), background-color _cf-animation-transition();
+//.mat-button-base {
+//  transition: color _cf-animation-transition(), background-color _cf-animation-transition();
+//
+//  .mat-ripple {
+//    transition: unset;
+//  }
+//}
 
-  .mat-ripple {
-    transition: unset;
-  }
-}
-
-.mat-toolbar {
-  transition: color _cf-animation-transition(), background-color _cf-animation-transition();
-
-  .mat-button-base {
-    transition: unset;
-  }
-}
-
-
+//.mat-toolbar {
+//  transition: color _cf-animation-transition(), background-color _cf-animation-transition();
+//
+//  .mat-button-base {
+//    transition: unset;
+//  }
+//}

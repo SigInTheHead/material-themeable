@@ -1,113 +1,41 @@
-@import "core/core";
+@use "core" as _core;
 
-@mixin _mat-themeable-size-classes($margin-config, $padding-config, $sizes...) {
-  @each $size in $sizes {
-    $padding: _cf-get-size($padding-config, $size);
-    $margin: _cf-get-size($margin-config, $size);
-
-    &.padding-vertical-#{$size} {
-      padding-bottom: $padding;
-      padding-top: $padding;
-    }
-
-    &.padding-horizontal-#{$size} {
-      padding-left: $padding;
-      padding-right: $padding;
-    }
-
-    &.margin-vertical-#{$size} {
-      margin-bottom: $margin;
-      margin-top: $margin;
-    }
-
-    &.margin-horizontal-#{$size} {
-      margin-left: $margin;
-      margin-right: $margin;
-    }
-  }
-}
-
-@mixin _mat-themeable-color-classes($theme, $hues...) {
-  @each $hue in $hues {
-    @include cf-mat-colors($theme, $hue);
-  }
-}
-
-@mixin _mat-themeable-text-color-classes($theme, $hues...) {
-  @each $hue in $hues {
-    @include cf-mat-text-colors($theme, $hue);
-  }
-}
-
-@mixin cf-mat-colors($theme, $hue) {
-  &.color-base {
-    background: cf-mat-color(map-get($theme, background), app-bar);
-    color: cf-mat-color(map-get($theme, foreground), text);
-  }
-  &.color-primary-#{$hue} {
-    @include cf-mat-theme-color(map-get($theme, primary), $hue);
-  }
-
-  &.color-accent-#{$hue} {
-    @include cf-mat-theme-color(map-get($theme, accent), $hue);
-  }
-
-  &.color-warn-#{$hue} {
-    @include cf-mat-theme-color(map-get($theme, warn), $hue);
-  }
-
-}
-
-@mixin cf-mat-text-colors($theme, $hue) {
-  &-color-primary-#{$hue} {
-    @include cf-mat-text-theme-color(map-get($theme, primary), $hue);
-  }
-
-  &-color-accent-#{$hue} {
-    @include cf-mat-text-theme-color(map-get($theme, accent), $hue);
-  }
-
-  &-color-warn-#{$hue} {
-    @include cf-mat-text-theme-color(map-get($theme, warn), $hue);
-  }
-
-}
-
-@mixin material-themeable($theme, $margin-sizes: $_cf-sizes, $padding-sizes: $_cf-sizes, $transition-config: $_transition-durations) {
+@mixin background-colors($theme, $extension-palettes-map: ()) {
   .mat-themeable {
-    transition: color _cf-animation-transition(fast), background-color _cf-animation-transition(fast);
+    transition: color _core.cf-animation-transition(fast), background-color _core.cf-animation-transition(fast);
 
-    @include _mat-themeable-size-classes($margin-sizes, $padding-sizes, none, very-small, small, standard, large, very-large);
-    @include _mat-themeable-color-classes($theme, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700, default, lighter, darker);
+    @include _core.color-base($theme);
+
+    @include _core.mat-themeable-color-classes($theme, $extension-palettes-map, _core.$hues);
+  }
+
+}
+
+@mixin layout($margin-sizes: _core.$cf-sizes, $padding-sizes: _core.$cf-sizes) {
+  .mat-themeable {
+
+    @include _core.mat-themeable-size-classes($margin-sizes, $padding-sizes, none, very-small, small, standard, large, very-large);
 
     &.layout {
       &-small {
-        margin: _cf-get-size($margin-sizes, small, 0);
-        padding: _cf-get-size($padding-sizes, small);
+        margin: _core.get-size($margin-sizes, small, 0);
+        padding: _core.get-size($padding-sizes, small);
       }
 
       &-standard {
-        margin: _cf-get-size($margin-sizes, standard, 0);
-        padding: _cf-get-size($padding-sizes, standard);
+        margin: _core.get-size($margin-sizes, standard, 0);
+        padding: _core.get-size($padding-sizes, standard);
       }
 
       &-large {
-        margin: _cf-get-size($margin-sizes, large, 0);
-        padding: _cf-get-size($padding-sizes, large);
+        margin: _core.get-size($margin-sizes, large, 0);
+        padding: _core.get-size($padding-sizes, large);
       }
 
       &-very-large {
-        margin: _cf-get-size($margin-sizes, very-large, 0);
-        padding: _cf-get-size($padding-sizes, very-large);
+        margin: _core.get-size($margin-sizes, very-large, 0);
+        padding: _core.get-size($padding-sizes, very-large);
       }
     }
   }
-
-  .mat-themeable-text {
-    @include _mat-themeable-text-color-classes($theme, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700, default, lighter, darker);
-  }
-}
-
-@mixin theme($theme, $margin-sizes: $_cf-sizes, $padding-sizes: $_cf-sizes, $transition-config: $_transition-durations) {
-  @include material-themeable($theme, $margin-sizes: $_cf-sizes, $padding-sizes: $_cf-sizes, $transition-config: $_transition-durations);
 }

@@ -9,6 +9,6 @@ $_transition-durations: (
   glacial: 2000ms
 );
 
-@function _cf-animation-transition($type: standard){
+@function cf-animation-transition($type: standard){
   @return map_get($_transition-durations, $type);
 }

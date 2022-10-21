@@ -1,0 +1,44 @@
+@use "colors" as core-color;
+
+@mixin mat-theme-color($palette, $hue) {
+  background: core-color.mat-color($palette, $hue);
+  color: core-color.mat-color($palette, #{$hue}-contrast);
+}
+
+@mixin color-base($theme) {
+  &.color-base {
+    background: core-color.mat-color(map-get($theme, background), app-bar);
+    color: core-color.mat-color(map-get($theme, foreground), text);
+  }
+}
+
+@mixin mat-colors($theme, $hue, $extension-palettes-map) {
+  &.color-base {
+    background: core-color.mat-color(map-get($theme, background), app-bar);
+    color: core-color.mat-color(map-get($theme, foreground), text);
+  }
+
+  &.color-primary-#{$hue} {
+    @include mat-theme-color(map-get($theme, primary), $hue);
+  }
+
+  &.color-accent-#{$hue} {
+    @include mat-theme-color(map-get($theme, accent), $hue);
+  }
+
+  &.color-warn-#{$hue} {
+    @include mat-theme-color(map-get($theme, warn), $hue);
+  }
+
+  @each $key, $palette in $extension-palettes-map {
+    &.color-#{$key}-#{$hue} {
+      @include mat-theme-color($palette, $hue);
+    }
+  }
+}
+
+@mixin mat-themeable-color-classes($theme, $extension-palettes-map, $hues) {
+  @each $hue in $hues {
+    @include mat-colors($theme, $hue, $extension-palettes-map);
+  }
+}

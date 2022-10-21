@@ -1,0 +1,26 @@
+@use "colors" as core-color;
+
+@mixin mat-text-theme-color($palette, $hue) {
+  color: core-color.mat-color($palette, $hue);
+}
+
+@mixin _mat-themeable-text-color-classes($theme, $hues...) {
+  @each $hue in $hues {
+    @include cf-mat-text-colors($theme, $hue);
+  }
+}
+
+@mixin cf-mat-text-colors($theme, $hue) {
+  &-color-primary-#{$hue} {
+    @include mat-text-theme-color(map-get($theme, primary), $hue);
+  }
+
+  &-color-accent-#{$hue} {
+    @include mat-text-theme-color(map-get($theme, accent), $hue);
+  }
+
+  &-color-warn-#{$hue} {
+    @include mat-text-theme-color(map-get($theme, warn), $hue);
+  }
+
+}
