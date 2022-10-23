@@ -1,6 +1,6 @@
 export declare type MatThemeableLayout = 'small' | 'standard' | 'large' | 'very-large' | undefined;
 
-export declare type MatThemeablePalette = 'base' | 'primary' | 'accent' | 'warn' | string | undefined;
+export declare type MatThemeablePalette = 'base' | 'primary' | 'accent' | 'warn' | undefined;
 
 export declare type MatThemeableSize = 'none' | 'very-small' | 'small' | 'standard' | 'large' | 'very-large' | undefined;
 

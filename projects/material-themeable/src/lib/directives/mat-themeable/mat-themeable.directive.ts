@@ -27,6 +27,28 @@ export class MatThemeableDirective implements OnInit {
     this._setColor();
   }
 
+  public get extendedColor(): string {
+    return this._extendedColor;
+  }
+
+  @Input()
+  public set extendedColor(value: string) {
+    this._unsetColor();
+    this._extendedColor = value;
+    this._setColor();
+  }
+
+  public get extendedTheme(): string {
+    return this._extendedTheme;
+  }
+
+  @Input()
+  public set extendedTheme(value: string) {
+    this._unsetColor();
+    this._extendedTheme = value;
+    this._setColor();
+  }
+
   public get horizontalMargin(): MatThemeableSize {
     return this._horizontalMargin;
   }
@@ -40,6 +62,21 @@ export class MatThemeableDirective implements OnInit {
     this._unsetMargin();
     this._horizontalMargin = value;
     this._setSizes('margin', value, this._verticalMargin);
+  }
+
+  public get horizontalPadding(): MatThemeableSize {
+    return this._horizontalPadding;
+  }
+
+  /**
+   * @description
+   * adds padding-horizontal-[MatThemeableSize] class
+   */
+  @Input()
+  public set horizontalPadding(value: MatThemeableSize) {
+    this._unsetPadding();
+    this._horizontalPadding = value;
+    this._setSizes('padding', value, this._verticalPadding);
   }
 
   public get hue(): MatThemeableHue {
@@ -93,21 +130,6 @@ export class MatThemeableDirective implements OnInit {
     this._setSizes('margin', this.horizontalMargin, value);
   }
 
-  public get horizontalPadding(): MatThemeableSize {
-    return this._horizontalPadding;
-  }
-
-  /**
-   * @description
-   * adds padding-horizontal-[MatThemeableSize] class
-   */
-  @Input()
-  public set horizontalPadding(value: MatThemeableSize) {
-    this._unsetPadding();
-    this._horizontalPadding = value;
-    this._setSizes('padding', value, this._verticalPadding);
-  }
-
   public get verticalPadding(): MatThemeableSize {
     return this._verticalPadding;
   }
@@ -138,6 +160,10 @@ export class MatThemeableDirective implements OnInit {
   public padding: MatThemeableSize;
 
   private _color: MatThemeablePalette;
+
+  private _extendedColor: string;
+
+  private _extendedTheme: string;
 
   private _horizontalMargin: MatThemeableSize;
 
@@ -173,12 +199,17 @@ export class MatThemeableDirective implements OnInit {
   }
 
   protected _setColor(): void {
-    if (this._color === undefined) {
+    if (this._color === undefined && this._extendedColor === undefined && this._extendedTheme === undefined) {
       return;
     }
+
     if (this._color === 'base') {
       this._renderer.addClass(this._el.nativeElement, `color-${this._color}`);
       return;
+    }
+
+    if (this._extendedColor && this._extendedTheme) {
+      this._renderer.addClass(this._el.nativeElement, `color-${this._extendedTheme}-${this._extendedColor}-${this._hue}`);
     }
 
     this._renderer.addClass(this._el.nativeElement, `color-${this._color}-${this._hue}`);
@@ -217,6 +248,10 @@ export class MatThemeableDirective implements OnInit {
     if (this._color === 'base') {
       this._renderer.removeClass(this._el.nativeElement, `color-${this._color}`);
       return;
+    }
+
+    if (this._extendedColor && this._extendedTheme) {
+      this._renderer.removeClass(this._el.nativeElement, `color-${this._extendedTheme}-${this._extendedColor}-${this._hue}`);
     }
 
     this._renderer.removeClass(this._el.nativeElement, `color-${this._color}-${this._hue}`);

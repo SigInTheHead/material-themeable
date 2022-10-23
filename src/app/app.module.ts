@@ -11,6 +11,9 @@ import { SharedModule } from './shared/shared.module';
   declarations: [
     AppComponent
   ],
+  exports: [
+    SharedModule
+  ],
   imports: [
     BrowserModule,
     DemoModule,
